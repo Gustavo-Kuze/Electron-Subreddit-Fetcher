@@ -13,8 +13,8 @@ let aboutWindow;
 
 function createWindow() {
   mainWindow = new BrowserWindow({ width: 900, height: 680, webPreferences: { webSecurity: false }, show: false });
-  imageWindow = new BrowserWindow({ width: 700, height: 700, parent: mainWindow, show: false });
-  aboutWindow = new BrowserWindow({ width: 700, height: 700, parent: mainWindow, show: false });
+  imageWindow = new BrowserWindow({ width: 700, height: 700, parent: mainWindow, show: false, autoHideMenuBar: true  });
+  aboutWindow = new BrowserWindow({height: '300px', parent: mainWindow, show: false, autoHideMenuBar: true });
 
   imageWindow.setMenu(null)
   aboutWindow.setMenu(null)

@@ -1,0 +1,16 @@
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eee;
+    height: 100vh;
+}
+
+.about-by{
+    font-size: 1.8em;
+}
+
+.about-by-link{
+    color: #1976d2;
+    cursor: pointer;
+}
