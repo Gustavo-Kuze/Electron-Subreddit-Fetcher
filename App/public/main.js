@@ -11,7 +11,7 @@ let mainWindow;
 let imageWindow;
 
 function createWindow() {
-  mainWindow = new BrowserWindow({width: 900, height: 680});
+  mainWindow = new BrowserWindow({width: 900, height: 680, webPreferences: {webSecurity: false}});
   imageWindow = new BrowserWindow({width: 600, height: 600, parent: mainWindow, show: false});
   mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
   imageWindow.loadURL(isDev ? 'http://localhost:3000/image' : `file://${path.join(__dirname, '../build/index.html')}`);
@@ -38,4 +38,5 @@ app.on('activate', () => {
 
 ipcMain.on('toggle-image', (event, args) => {
   imageWindow.show()
+  imageWindow.webContents.send('image', args)
 })

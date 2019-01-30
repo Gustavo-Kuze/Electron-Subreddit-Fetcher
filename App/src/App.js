@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get('https://www.reddit.com/r/aww.json')
+    axios.get('https://www.reddit.com/r/aww.json?raw_json=1')
       .then(data => {
         this.setState({
           posts: data.data.data.children
@@ -20,8 +20,8 @@ class App extends Component {
       })
   }
 
-  showImage = () => {
-    ipcRenderer.send('toggle-image')
+  showImage = img => {
+    ipcRenderer.send('toggle-image', img)
   }
 
   render() {
@@ -30,7 +30,7 @@ class App extends Component {
         <ul className="list-group list-group-flush">
           {this.state.posts.map(post =>
             <li key={post.data.id} className="list-group-item flex-container"
-              onClick={() => this.showImage()}
+              onClick={() => this.showImage(post.data.preview.images[0].source.url)}
             >
               <img  src={post.data.thumbnail} className="thumbnail" alt={`Thumbnail of post ${post.data.title}`}/>
               <div>
