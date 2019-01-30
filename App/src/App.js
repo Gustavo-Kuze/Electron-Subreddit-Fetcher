@@ -12,8 +12,12 @@ class App extends Component {
     posts: []
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.initMenu()
+  }
+
+  componentDidMount() {
+
     axios.get('https://www.reddit.com/r/aww.json?raw_json=1')
       .then(data => {
         this.setState({
@@ -29,28 +33,28 @@ class App extends Component {
   initMenu = () => {
     const menu = Menu.buildFromTemplate([
       {
-        label: "File",
+        label: "Start",
         submenu: [
-          {
-            label: "Settings",
-            accelerator: "CmdOrCtrl+,",
-            click: () => {
-              ipcRenderer.send("toggle-settings")
-            }
-          },
           {
             type: "separator"
           },
           {
-            label: "Quit",
-            accelerator: "CmdOrCtrl+Q"
+            label: "Exit",
+            accelerator: "CmdOrCtrl+E",
+            role: 'close'
           }
         ]
       },
       {
         label: "More",
         submenu: [
-          { label: "About" }
+          {
+            label: "About",
+            accelerator: "CmdOrCtrl+,",
+            click: () => {
+              ipcRenderer.send("toggle-about")
+            }
+          }
         ]
       }
     ])
