@@ -18,7 +18,7 @@ class App extends Component {
 
   componentDidMount() {
 
-    axios.get('https://www.reddit.com/r/aww.json?raw_json=1')
+    axios.get('https://www.reddit.com/r/pic.json?raw_json=1')
       .then(data => {
         this.setState({
           posts: data.data.data.children

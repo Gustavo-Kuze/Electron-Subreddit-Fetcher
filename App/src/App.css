@@ -45,13 +45,14 @@
   display: block;
   padding: 0.75rem 1.25rem;
   margin-bottom: -1px;
-  background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: #333;
+  border: 1px solid #EEEEEE22;
+  color: #EEE;
   cursor: pointer;
 }
 
 .list-group-item:hover {
-  background-color: #eee;
+  background-color: #222;
 }
 
 .list-group-flush .list-group-item {
@@ -66,7 +67,7 @@
   width: 60px;
   height: 60px;
   border-radius: 30px;
-  margin-right: 16px;
+  margin-right: 13px;
 }
 .flex-container {
   display: flex;
